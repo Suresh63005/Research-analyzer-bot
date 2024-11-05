@@ -9,16 +9,9 @@ const os = require('os');
 
 // const upload = multer({ dest: "uploads/" });
 
-const upload = multer({
-  storage: multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, path.join(os.tmpdir(), 'uploads'));
-    },
-    filename: function (req, file, cb) {
-      cb(null, file.originalname);
-    }
-  })
-});
+
+const upload = multer({ storage: multer.memoryStorage() });
+
 
 
 
