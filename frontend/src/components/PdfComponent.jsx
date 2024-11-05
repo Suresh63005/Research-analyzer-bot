@@ -25,11 +25,16 @@ const PdfComponent = () => {
     formData.append("file", file);
 
     try {
-      const response = await axios.post("http://localhost:8081/api/pdfanalyze", formData, {
+      const response = await axios.post("https://research-analyzer-bot-api.vercel.app/api/pdfanalyze", formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
+      // const response = await axios.post("http://localhost:8081/api/pdfanalyze", formData, {
+      //   headers: {
+      //     'Content-Type': 'multipart/form-data',
+      //   },
+      // });
 
       const assistantMessage = {
         id: Date.now() + 1, 

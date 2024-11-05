@@ -16,7 +16,8 @@ const ChatComponent = () => {
     setMessages((prevMessages) => [...prevMessages, newMessage]);
 
     try {
-      const response = await axios.post("http://localhost:8081/api/chat", { inputChat });
+      const response = await axios.post("https://research-analyzer-bot-api.vercel.app/api/chat", { inputChat });
+      // const response = await axios.post("http://localhost:8081/api/chat", { inputChat });
     //   console.log(response);
       const assistantMessage = {
         id: Date.now() + 1, 

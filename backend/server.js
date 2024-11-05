@@ -5,6 +5,7 @@ const multer = require("multer");
 const pdfParse = require("pdf-parse");
 const PORT = process.env.PORT || 8081;
 const fs = require("fs");
+const os = require('os');
 
 // const upload = multer({ dest: "uploads/" });
 
