@@ -6,7 +6,18 @@ const pdfParse = require("pdf-parse");
 const PORT = process.env.PORT || 8081;
 const fs = require("fs");
 
-const upload = multer({ dest: "uploads/" });
+// const upload = multer({ dest: "uploads/" });
+
+const upload = multer({
+  storage: multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, path.join(os.tmpdir(), 'uploads'));
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.originalname);
+    }
+  })
+});
 
 
 
