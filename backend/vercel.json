@@ -6,11 +6,15 @@
       "use": "@vercel/node"
     }
   ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "server.js"
+  "functions": {
+    "api/pdfanalyze": {
+      "maxDuration": 30,  
+      "memory": 1024  
     }
+  },
+  "routes": [
+    { "src": "/api/pdfanalyze", "dest": "server.js" },
+    { "src": "/(.*)", "dest": "server.js" }
   ]
-
 }
+
