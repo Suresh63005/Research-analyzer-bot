@@ -10,9 +10,8 @@ const PORT = process.env.PORT || 8081;
 
 const upload = multer({ 
     storage: multer.memoryStorage(),
-    limits: { fileSize: 10 * 1024 * 1024 } 
+    limits: { fileSize: 3 * 1024 * 1024 } 
 });
-
 
 const app = express();
 app.use(cors());
@@ -44,7 +43,7 @@ app.post("/api/chat", async (req, res) => {
     }
 });
 
-
+// PDF analysis endpoint
 app.post("/api/pdfanalyze", upload.single("file"), async (req, res) => {
     const evaluationPrompt = `
     Please evaluate the provided research paper based on the following IB Biology Internal Assessment criteria. 
@@ -77,7 +76,7 @@ app.post("/api/pdfanalyze", upload.single("file"), async (req, res) => {
             return res.status(400).json({ error: "No file uploaded" });
         }
 
-       
+        
         const pdfText = await pdfParse(req.file.buffer);
 
         console.log("Extracted Text from PDF:", pdfText.text);
@@ -99,14 +98,10 @@ app.post("/api/pdfanalyze", upload.single("file"), async (req, res) => {
     }
 });
 
-app.use((req, res, next) => {
-    req.setTimeout(30000); 
-    next();
-});
+
 app.get("/", (req, res) => {
     res.send("Hello...");
 });
-
 
 app.listen(PORT, (err) => {
     if (err) {
