@@ -7,10 +7,10 @@ const { OpenAI } = require("openai");
 
 const PORT = process.env.PORT || 8081;
 
-// Use memory storage for uploaded files
+
 const upload = multer({ 
     storage: multer.memoryStorage(),
-    limits: { fileSize: 5 * 1024 * 1024 } // 5 MB limit
+    limits: { fileSize: 5 * 1024 * 1024 } 
 });
 
 const app = express();

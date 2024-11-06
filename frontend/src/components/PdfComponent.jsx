@@ -52,7 +52,7 @@ const PdfComponent = () => {
       };
       setMessages((prevMessages) => [...prevMessages, errorMessage]);
     } finally {
-      setIsLoading(false); // Stop loading
+      setIsLoading(false); 
     }
 
     setFile(null); 
