@@ -11,12 +11,6 @@
       "src": "/(.*)",
       "dest": "server.js"
     }
-  ],
-  "functions": {
-    "api/pdfanalyze": {
-      "maxDuration": 10,
-      "memory": 256,
-      "maxLambdaSize": "20mb"
-    }
-  }
+  ]
+
 }
